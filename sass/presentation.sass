@@ -1,0 +1,91 @@
+@import "compass"
+@import "compass/reset"
+@import "animate.sass"
+@import "ceaser-easing"
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic)
+
+$cyan: #4ac
+$magenta: #d07
+$yellow: #ed0
+$orange: #d90
+
+body
+  font-family: Ubuntu, sans-serif
+  color: #444
+  +transition(background-color 0.5s)
+  font-size: 62.5%
+  letter-spacing: -0.12rem
+  background: #eee
+  font-weight: 600
+  +background(linear-gradient(#467, #356))
+a
+  text-decoration: none
+  color: #3fa9f5
+
+b, strong
+  font-weight: bold
+
+.caps
+  text-transform: uppercase
+
+.step
+  background: white
+  border-left: 1rem solid $cyan
+  width: 960px
+  height: 710px
+  padding: 40px
+  font-size: 48px
+  margin: 0
+  +box-sizing(border-box)
+  +box-shadow(2px 2px 8px rgba(0,0,0,0.3))
+  +border-radius(1.2rem)
+  line-height: 1.5
+  text-align: center
+  h1
+    font-size: 5rem
+    font-weight: 700
+    line-height: 90%
+    b
+      font-weight: 900
+      color: #222
+  h2
+    font-size: 4rem
+  h3
+    font-size: 3rem
+  opacity: 0.2
+  +transition(opacity 1.5s)
+  &.active
+    opacity: 1.0
+
+#open
+  h2
+    font-size: 3rem
+    letter-spacing: -0.2rem
+    margin-top: 5rem
+    font-weight: 300
+  h1
+    color: $cyan
+    font-size: 10rem
+    font-weight: 300
+    line-height: 80%
+    margin-bottom: 5rem
+    text-transform: uppercase
+
+#what-is-cors
+  h1
+    font-size: 9rem
+    text-align: left
+    line-height: 85%
+    margin-top: 4rem
+    margin-left: 2rem
+    font-weight: 900
+
+#soa-in-browser
+  h1
+    font-size: 10rem
+    margin-top: 10rem
+
+#how-cors-works
+  h1
+    font-size: 7rem
+    margin-top: 11rem
