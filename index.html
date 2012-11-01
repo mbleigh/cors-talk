@@ -22,7 +22,8 @@
       </div>
       
       <div class='step' data-x='0' data-y='-750' id='about-me'>
-        <h1>CEO of Divshot, Fellow at Intridea</h1>
+        <a href="http://divshot.com" target="_blank"><img src="images/logo.svg" width="600" alt="CEO of Divshot"/></a>
+        <a href="http://intridea.com" target="_blank"><img src="images/Intridea-Logo.png" alt="Fellow at Intridea"/></a>
       </div>
       
       <div class='step one-liner' data-x='0' data-y='-1500' id='follow-along'>
@@ -41,7 +42,15 @@
           Sharing
         </h1>
       </div>
-      
+
+      <div class='step magenta one-liner' id='jsonp' data-x="1000" data-y="-750">
+        <h1>Cross-Domain AJAX? You mean like JSONP?</h1>
+      </div>
+
+      <div class='step magenta one-liner' data-x='1000' data-y='-1500' id='browser-caveat'>
+        <h1><b>Warning:</b> Like all good things, doesn't work well in IE &lt; 10</h1>
+      </div>
+
       <div class='step one-liner yellow' data-x='2000' data-y='0' id='soa-in-browser'>
         <h1>
           <b>SOA</b>
@@ -196,8 +205,13 @@ end</code></pre>
         </ul>
       </div>
 
-      <div class='step green image' id='example' data-x='3000' data-y='1500'>
+      <div class='step green list' id='alloy' data-x='3000' data-y='1500'>
         <h1>Example: Divshot Alloy</h1>
+
+        <ul>
+          <li>REST API for compiling CSS from SASS, LESS, and Stylus</li>
+          <li>Created for Divshot, <a href="https://github.com/divshot/alloy" target="_blank">open sourced</a> and run for free</li>
+        </ul>
       </div>
 
       <div class='step green list' id='famous-examples' data-x='3000' data-y='2250'>
@@ -206,6 +220,23 @@ end</code></pre>
           <li><b>GitHub:</b> <i>Entire API</i> can be accessed via CORS</li>
           <li><b>Amazon S3:</b> Uploading now possible via S3.</li>
         </ul>
+      </div>
+
+      <div class='step green list' id='handling-auth' data-x='3000' data-y='3000'>
+        <h1>Handling Authentication</h1>
+        <ul>
+          <li><b>Can't count</b> on secrets</li>
+          <li>Still want to identify application</li>
+          <li><b>GitHub's Solution:</b> Only allow CORS requests from domains of registered applications</li>
+        </ul>
+      </div>
+
+      <div class='step one-liner' id='do-today' data-x='4000'>
+        <h1>Now you know<br> what you can do<br> with CORS today</h1>
+      </div>
+
+      <div class='step one-liner' id='do-tomorrow' data-x='4000' data-y='750'>
+        <h1>What will you do with CORS tomorrow?</h1>
       </div>
 
       <div class='step' id='thanks' data-x="5000" data-y="5000" data-scale="20" data-rotate="90">

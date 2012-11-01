@@ -6,4 +6,8 @@ $(function() {
   });
 
   impress().init();
+
+  $("#alloy").on("keyup", "textarea", function(e) {
+    e.stopPropagation();
+  });
 });
