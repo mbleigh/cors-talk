@@ -4,10 +4,11 @@
 @import "ceaser-easing"
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic)
 
-$cyan: #4ac
-$magenta: #d07
+$cyan: #4cf
+$magenta: #c08
 $yellow: #ed0
 $orange: #d90
+$green: #6c0
 
 body
   font-family: Ubuntu, sans-serif
@@ -16,8 +17,7 @@ body
   font-size: 62.5%
   letter-spacing: -0.12rem
   background: #eee
-  font-weight: 600
-  +background(linear-gradient(#467, #356))
+  +background(linear-gradient(#444, #222))
 a
   text-decoration: none
   color: #3fa9f5
@@ -25,8 +25,35 @@ a
 b, strong
   font-weight: bold
 
+p
+  text-align: left
+  margin-top: 2rem
+
+pre
+  font-family: monospace
+  font-weight: normal
+  text-align: left
+  font-size: 1.5rem
+  background: #f8f8ff
+  padding: 1rem
+  border: 1px solid #ddd
+  +border-radius(0.3rem)
+  &.small
+    font-size: 1rem
+
 .caps
   text-transform: uppercase
+
+p code
+  font-weight: normal
+  color: $magenta
+  background: #f5f5f5
+  display: inline-block
+  padding: 0 0.5rem
+  font-family: monospace
+  +border-radius(0.2rem)
+  border: 1px solid #ddd
+  margin: 0 0.5rem
 
 .step
   background: white
@@ -38,9 +65,17 @@ b, strong
   margin: 0
   +box-sizing(border-box)
   +box-shadow(2px 2px 8px rgba(0,0,0,0.3))
-  +border-radius(1.2rem)
   line-height: 1.5
   text-align: center
+  &.invisible
+    visibility: hidden
+    z-index: -1000
+  &.magenta
+    border-color: $magenta
+  &.yellow
+    border-color: $yellow
+  &.green
+    border-color: $green
   h1
     font-size: 5rem
     font-weight: 700
@@ -56,6 +91,18 @@ b, strong
   +transition(opacity 1.5s)
   &.active
     opacity: 1.0
+  .external-link
+    position: absolute
+    right: 1rem
+    bottom: 1rem
+    background: #888
+    color: white
+    +border-radius(1rem)
+    display: block
+    padding: 0 0.5rem 0 0.7rem
+    font-size: 1rem
+    i
+      margin-left: 0.3rem
 
 #open
   h2
@@ -71,6 +118,10 @@ b, strong
     margin-bottom: 5rem
     text-transform: uppercase
 
+#follow-along
+  h1
+    margin: 10rem 0 3rem
+    font-size: 7rem
 #what-is-cors
   h1
     font-size: 9rem
@@ -89,3 +140,77 @@ b, strong
   h1
     font-size: 7rem
     margin-top: 11rem
+
+.access-control
+  h1
+    color: #444
+    font-family: monospace
+    font-size: 3rem
+    font-weight: normal
+    margin-top: 3rem
+    &:first-child
+      margin-top: 2rem
+  p
+    font-size: 2rem
+    font-weight: normal
+    text-align: left
+    margin: 2rem 0
+
+#preflight
+  h1
+    font-size: 4rem
+    margin-top: 10rem
+    margin-bottom: 3rem
+
+.impress-on-soa-revisit
+  #soa-in-browser
+    opacity: 1.0
+
+.impress-on-public-api-revisit
+  #public-apis
+    opacity: 1.0
+
+.title-image
+  h1
+    margin-top: 4rem
+    margin-bottom: 2rem
+
+.list
+  ul
+    margin-top: 3rem
+    text-align: left
+    padding: 0 4rem
+    li
+      list-style: disc
+
+.code
+  pre
+    margin-top: 2rem
+    margin-bottom: 2rem
+
+.one-liner
+  h1
+    margin-top: 6rem
+
+#soa-demo
+  h1
+    margin-top: 14rem
+    font-size: 8rem
+
+#thanks
+  background: transparent
+  border: 0
+  +box-shadow(none)
+  #thanks-box
+    text-align: center
+    padding: 1rem
+    background: white
+    +box-shadow(0 0 2rem black)
+    h1
+      background: $cyan
+      color: white
+      padding: 1rem 1.5rem
+      margin: -1rem -1rem 1rem
+    a
+      color: #222
+      font-weight: bold

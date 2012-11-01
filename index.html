@@ -6,6 +6,11 @@
     <meta charset='utf-8' />
     <meta content='width=1024' name='viewport' />
     <link href='css/presentation.css' rel='stylesheet' />
+    <link href='css/font-awesome.css' rel='stylesheet' />
+    <link rel="stylesheet" href="styles/default.css">
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body class='impress-not-supported'>
     <div data-max-scale='2' data-min-scale='0.25' data-transition-duration='500' id='impress'>
@@ -20,7 +25,12 @@
         <h1>CEO of Divshot, Fellow at Intridea</h1>
       </div>
       
-      <div class='step' data-x='1000' data-y='0' id='what-is-cors'>
+      <div class='step one-liner' data-x='0' data-y='-1500' id='follow-along'>
+        <h1>Follow Along!</h1>
+        <a href="http://mbleigh.github.com/cors-talk">http://mbleigh.github.com/cors-talk</a>
+      </div>
+
+      <div class='step magenta' data-x='1000' data-y='0' id='what-is-cors'>
         <h1>
           Cross
           <br />
@@ -32,7 +42,7 @@
         </h1>
       </div>
       
-      <div class='step one-liner' data-x='2000' data-y='0' id='soa-in-browser'>
+      <div class='step one-liner yellow' data-x='2000' data-y='0' id='soa-in-browser'>
         <h1>
           <b>SOA</b>
           in the
@@ -40,13 +50,173 @@
         </h1>
       </div>
 
-      <div id='how-cors-works' class='step one-liner' data-x="1000" data-y="750">
-        <h1>Access Control Headers</h1>
+      <div id='public-apis' class='step green title-image green' data-x='3000' data-y='0'>
+        <h1>Public API + CORS =</h1>
+        <img src="images/mind-blown.gif" alt="Mind Blown" width="350" height="350"/>
       </div>
 
-      <div id='allow-origin' class='step code' data-x="1000" data-y="1500">
+      <div id='how-cors-works' class='step one-liner magenta' data-x="1000" data-y="750">
+        <h1>Access Control Headers</h1>
+        <a class='external-link' href='https://developer.mozilla.org/en-US/docs/HTTP_access_control' target='_blank'>Learn More <i class='icon-circle-arrow-right'></i></a>
+      </div>
+
+      <div id='preflight' class='step magenta' data-x="1000" data-y="1500">
+        <h1><code>OPTIONS</code> Preflight Request</h1>
+        <p>Triggered when request is not <code>GET</code> or has custom headers.</p>
+      </div>
+
+      <div id='allow-origin' class='step access-control magenta' data-x="1000" data-y="2250">
+        <h1>Access-Control-Allow-Origin</h1>
+
+        <p>Acceptable origin domain or <code>*</code> to accept all origins.</p>
+
+        <pre class='example'><code>Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: https://api.yourapp.com</code></pre>
+      </div>
+
+      <div id='allow-methods' class='step access-control magenta' data-x="1000" data-y="3000">
+        <h1>Access-Control-Allow-Methods</h1>
+
+        <p>Comma-separated list of acceptable methods.</p>
+
+        <pre class='example'><code>Access-Control-Allow-Methods: GET, POST, PUT</code></pre>
+      </div>
+
+      <div id='expose-headers' class='step access-control magenta' data-x="1000" data-y="3750">
+        <h1>Access-Control-Expose-Headers</h1>
+
+        <p>Comma-separated list of headers the browser can view.</p>
+
+        <pre class='example'><code>Access-Control-Expose-Headers: X-My-Header, X-Your-Header</code></pre>
+
+        <h1>Access-Control-Allow-Headers</h1>
+
+        <p>Used in preflight request to indicate what headers can be used in real request.</p>
+
+        <pre class='example'><code>Access-Control-Allow-Headers: X-My-Header, X-Your-Header</code></pre>
+      </div>
+
+      <div class='step invisible' id='soa-revisit' data-x="2000" data-y="0"></div>
+
+      <div id='soa-diagram' class='step yellow' data-x="2000" data-y="750">
+        <img src="images/soa-diagram.svg" width="800" alt="SOA Diagram"/>
+      </div>
+
+      <div id='soa-advantages' class='step list yellow' data-x="2000" data-y="1500">
+        <h1>Advantages</h1>
+
+        <ul>
+          <li>Scalability</li>
+          <li>Reusabiltiy</li>
+          <li>Flexibility</li>
+          <li>Fault Tolerance</li>
+          <li>Clean Boundaries</li>
+        </ul>
+      </div>
+
+      <div id='soa-disadvantages' class='step list yellow' data-x='2000' data-y='2250'>
+        <h1>Disadvantages</h1>
+
+        <ul>
+          <li>Initial Complexity</li>
+          <li>Cross-Service Communication</li>
+          <li>Lack of Framework</li>
+        </ul>
+      </div>
+
+      <div id='rack-cascade' class='step code yellow' data-x='2000' data-y='3000'>
+        <h1><i class='icon-bolt'></i> Pre-Scale SOA <i class='icon-bolt'></i></h1>
+
+        <p>Fully break out services as scale and complexity demand it.</p>
+
+        <pre><code class='ruby'># in config.ru
+run Rack::Cascade.new([
+  MyApp::ServiceOne,
+  MyApp::ServiceTwo,
+  MyApp::ServiceThree
+])</code></pre>
+      </div>
+
+      <div id='keep-it-light' class='step one-liner yellow' data-x='2000' data-y='3750'>
+        <h1>Keep it Light(weight)</h1>
+        <p>Frameworks like <a href="http://sinatrarb.com" target="_blank">Sinatra</a> and <a href="http://intridea.github.com/grape" target="_blank">Grape</a> are a little easier to break apart than Rails apps.</p>
+      </div>
+
+      <div id='cors-in-ruby' class='step code yellow' data-x='2000' data-y='4500'>
+        <h1>Rack::Cors and Done</h1>
+
+        <pre class='small'><code class='ruby'># in Gemfile
+gem 'rack-cors', require: 'rack/cors'
+
+# in application or config.ru
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '/public/*'
+  end
+
+  allow do
+    origins 'localhost:3000', 'app.example.com'
+    resource '/private/*',
+      methods: [:get, :post, :put, :delete, :options, :patch],
+      headers: 'x-special-header',
+      expose: ['X-Special-Response-Header']
+    end
+  end
+end</code></pre>
+
+        <a class='external-link' href="https://github.com/cyu/rack-cors" target="_blank">Visit Project <i class='icon-circle-arrow-right'></i></a>
+      </div>
+
+      <div id='soa-demo' class='step yellow one-liner' data-x='2000' data-y='5250'>
+        <h1>Let's Dig In!</h1>
+        <a class='external-link' target='_blank' href='https://github.com/mbleigh/cors-talk-example'>View on GitHub <i class='icon-circle-arrow-right'></i></a>
+      </div>
+
+
+      <div id='demo-recap' class='step list yellow' data-x="2000" data-y="6000">
+        <h1>Quick Recap</h1>
+        <ul>
+          <li>The browser runs the show</li>
+          <li>Services can talk to each other</li>
+          <li>Find the right balance</li>
+        </ul>
+      </div>
+
+      <div class='step invisible' id='public-api-revisit' data-x="3000" data-y="0"></div>
+
+      <div class='step green list' id='why-mind-blown' data-x='3000' data-y='750'>
+        <h1>What's so awesome?</h1>
+        <ul>
+          <li>Lower barrier to entry</li>
+          <li>Mashups without servers</li>
+          <li>Services can become public APIs</li>
+          <li>Same burden on you, less burden on your users</li>
+          <li><i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> <i class='icon-heart'></i> </li>
+        </ul>
+      </div>
+
+      <div class='step green image' id='example' data-x='3000' data-y='1500'>
+        <h1>Example: Divshot Alloy</h1>
+      </div>
+
+      <div class='step green list' id='famous-examples' data-x='3000' data-y='2250'>
+        <h1>Famous Examples</h1>
+        <ul>
+          <li><b>GitHub:</b> <i>Entire API</i> can be accessed via CORS</li>
+          <li><b>Amazon S3:</b> Uploading now possible via S3.</li>
+        </ul>
+      </div>
+
+      <div class='step' id='thanks' data-x="5000" data-y="5000" data-scale="20" data-rotate="90">
+        <div id='thanks-box'>
+          <h1>Thanks!</h1>
+          Any questions? <a href="http://twitter.com/mbleigh">@mbleigh</a>
+          <a href="https://github.com/cors-talk">https://github.com/mbleigh/cors-talk</a>
+        </div>
       </div>
     </div>
+
     <!-- Javascripts -->
     <script src='js/jquery.min.js'></script>
     <script src='js/impress.js'></script>
