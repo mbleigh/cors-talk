@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-403425-5']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
   <body class='impress-not-supported'>
     <div data-max-scale='2' data-min-scale='0.25' data-transition-duration='500' id='impress'>
@@ -252,5 +263,13 @@ end</code></pre>
     <script src='js/jquery.min.js'></script>
     <script src='js/impress.js'></script>
     <script src='js/application.js'></script>
+        <script>
+      $(function() {
+        $('#impress').on('impress:stepenter', function() {
+          var slide = $('.step.active').attr('id')
+          _gaq.push(["_trackPageview","/open-source-marketing/slides/" + slide]);
+        });
+      });
+    </script>
   </body>
 </html>
